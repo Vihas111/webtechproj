@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeric Keypad</title>
+    <link rel="stylesheet" href="stylekey.css">
+</head>
+<body>
+    <div class="keypad">
+        <input type="text" id="inputField" readonly>
+        <div class="row">
+            <button onclick="addToInput('1')">1</button>
+            <button onclick="addToInput('2')">2</button>
+            <button onclick="addToInput('3')">3</button>
+        </div>
+        <div class="row">
+            <button onclick="addToInput('4')">4</button>
+            <button onclick="addToInput('5')">5</button>
+            <button onclick="addToInput('6')">6</button>
+        </div>
+        <div class="row">
+            <button onclick="addToInput('7')">7</button>
+            <button onclick="addToInput('8')">8</button>
+            <button onclick="addToInput('9')">9</button>
+        </div>
+        <div class="row">
+            <button onclick="addToInput('0')">0</button>
+            <button onclick="backspace()">Backspace</button>
+            <button onclick="submitInput()">OK</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

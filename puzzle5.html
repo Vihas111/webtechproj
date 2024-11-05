@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slide Puzzle</title>
+        <link rel="stylesheet" href="slidepuz.css">
+        <script src="app.js"></script>
+    </head>
+
+    <body>
+        <br>
+
+        <img id="title" src="img_slidepuz/logo.png" alt="Game Title" style="height: 100px; width:450px">
+
+        <br>
+
+        <div id="board"></div>
+
+        <h1 id="turn">Turns: <span id="turns">0</span></h1>
+
+        <button id="reset" onclick="resetPuzzle()">Reset Puzzle</button>
+
+        <img id="nextButton" src="img_slidepuz/next.png" onclick="goToNextLevel('victory.html')" style="display: none; position: absolute; top: 20px; right: 20px; cursor: pointer; width: 100px; height: 100px;" alt="Next">
+
+        <img id="code" src="img_slidepuz/code.jpg" class="hidden" style="display: none; position: absolute; top: 150px; left: 570px; cursor: pointer; width: 400px; height: 400px;" alt="Code">
+
+        <div id="keypadcont" class="hidden" style="display: none; position:absolute;top: 400px; left: 690px">
+
+            <button id="toggleKeypad" onclick="toggleKeypad()">Submit Code</button>
+            
+            <div class="keypad" id="keypad">
+                <button class="close-btn" onclick="toggleKeypad()">✖</button>
+                <input type="text" id="inputField" maxlength="4" readonly>
+                <div class="row">
+                    <button onclick="addToInput('1')">1</button>
+                    <button onclick="addToInput('2')">2</button>
+                    <button onclick="addToInput('3')">3</button>
+                </div>
+                <div class="row">
+                    <button onclick="addToInput('4')">4</button>
+                    <button onclick="addToInput('5')">5</button>
+                    <button onclick="addToInput('6')">6</button>
+                </div>
+                <div class="row">
+                    <button onclick="addToInput('7')">7</button>
+                    <button onclick="addToInput('8')">8</button>
+                    <button onclick="addToInput('9')">9</button>
+                </div>
+                <div class="row">
+                    <button onclick="backspace()">←</button>
+                    <button onclick="addToInput('0')">0</button>
+                    <button onclick="checkPuzzle5Answer('victory.html')">OK</button>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

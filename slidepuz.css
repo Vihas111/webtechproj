@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #0c67ae;
+    background-image: url('img_slidepuz/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+}
+
+#title {
+    height: 150px;
+    width: 400px;
+}
+
+#board {
+    width: 360px;
+    height: 360px;
+    background-color: lightblue;
+    border: 10px solid #0c67ae;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#board img {
+    width: 118px;
+    height: 118px;
+    border: 1px solid #0c67ae;
+}
+
+#reset {
+    background-color: #cc9529;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#toggleKeypad {
+    background-color: #cc9529;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#toggleKeypad:hover {
+    background-color: #366789;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+#reset:hover {
+    background-color: #366789;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+#nextButton {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.keypad {
+    display: none; /* Hide the keypad by default */
+    position: fixed; /* Position it fixed for overlay effect */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for visibility */
+    border: 2px solid #cc9529; /* Dark border to match theme */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    z-index: 10; /* Ensure it appears above other content */
+}
+
+/* Close button in the keypad */
+.close-btn {
+    background: none;
+    border: none;
+    color: #cc9529; /* Match theme color */
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 3px; /* Position in the top right corner */
+}
+
+/* Input field styling */
+#inputField {
+    width: 60%; /* Full width */
+    height: 40px; /* Set height */
+    font-size: 24px; /* Larger text for visibility */
+    text-align: center; /* Center text */
+    margin-bottom: 15px; /* Space below input */
+    border: 2px solid #cc9529; /* Dark border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    color: #4B2C20; /* Dark text color */
+}
+
+/* Keypad button styling */
+.keypad button {
+    width: 60px; /* Button width */
+    height: 60px; /* Button height */
+    font-size: 24px; /* Text size */
+    margin: 5px; /* Space around buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #cc9529; /* Dark background */
+    color: white; /* White text */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Button hover effect */
+.keypad button:hover {
+    background-color: #366789;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Row layout for keypad buttons */
+.keypad .row {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center buttons horizontally */
+    margin: 10px 0; /* Space between rows */
+}
+

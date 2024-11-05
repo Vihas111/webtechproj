@@ -15,7 +15,7 @@ html, body {
 }
 
 .puzzle1-bg{
-    background-image: url('../bg1.png'); 
+    background-image: url('../puzzle4img/bg1.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

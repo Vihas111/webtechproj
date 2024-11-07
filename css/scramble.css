@@ -1,0 +1,101 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("../img_scramble/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+#game-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.letter-tile {
+display: inline-block;
+padding: 8px 12px;
+margin: 5px;
+background-color: #8a2be2;
+color: white;
+font-size: 18px;
+border-radius: 5px;
+cursor: move;
+width: 40px;
+height: 40px;
+text-align: center;
+line-height: 40px;
+}
+
+.letter-tile.highlight {
+background-color: #FFD700;
+}
+
+#word-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding-top: 0px;
+}
+
+.word-row {
+display: flex;
+justify-content: flex-start;
+align-items: center;
+flex-wrap: wrap;
+margin-bottom: 10px;
+}
+
+.word-message {
+margin-left: 20px;
+color: green;
+font-weight: bold;
+}
+
+#code-container {
+padding-top: 20px;
+text-align: center;
+}
+
+#code-input {
+padding: 10px 20px;
+font-size: 18px;
+border: 2px solid #8a2be2;
+border-radius: 25px;
+outline: none;
+transition: 0.3s;
+width: 200px;
+}
+
+#code-input:focus {
+border-color: #FFD700;
+box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+#submit-button {
+padding: 10px 20px;
+font-size: 18px;
+background-color: #8a2be2;
+color: white;
+border: none;
+border-radius: 25px;
+cursor: pointer;
+transition: 0.3s;
+margin-top: 10px;
+}
+
+#submit-button:hover {
+background-color: #7a1bbf;
+}
+
+#submit-button:disabled {
+background-color: #b5b5b5;
+cursor: not-allowed;
+}
+
+#code-message {
+margin-top: 10px;
+font-weight: bold;
+}

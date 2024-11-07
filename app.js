@@ -194,7 +194,7 @@ function isAdjacentToEmpty(tile) {
 function checkPuzzle5Answer(nextPage) {//change the name of checkpuzzle5Answer(for now its 5th)
     const answer = document.getElementById("inputField").value;
     
-    if (answer === "3450") {
+    if (answer === "9034") {
         alert("Correct!!");
         document.getElementById("nextButton").style.display = "block";
     } else {
@@ -224,3 +224,132 @@ function checkPuzzle1Answer(nextPage) {
         }, 1500);
     }
 }
+
+
+//this is scramble puzzle code
+const words = ["AZKABAN", "HOGWARTS", "PATRONUS", "MUGGLE"];
+const scrambledWords = words.map(word => word.split('').sort(() => Math.random() - 0.5));
+const solutionCode = `${words[0][2]}${words[1][1]}${words[2][4]}${words[3][0]}`;
+
+let letterSets = [...scrambledWords];
+let solvedWords = [false, false, false, false];
+let msg = ['', '', '', ''];
+const highlightLetters = [
+  { wordIndex: 0, letterIndex: 2 },
+  { wordIndex: 1, letterIndex: 1 },
+  { wordIndex: 2, letterIndex: 4 },
+  { wordIndex: 3, letterIndex: 0 },
+];
+
+const checkSolved = (letters, index) => {
+  if (letters.join('') === words[index]) {
+    msg[index] = '✨ Correct! ✨';
+    solvedWords[index] = true;
+  } else {
+    msg[index] = '';
+    solvedWords[index] = false;
+  }
+  updateUI();
+};
+
+const moveLetter = (wordIndex, dragIndex, hoverIndex) => {
+  if (solvedWords[wordIndex]) return;
+
+  const updatedLetters = [...letterSets[wordIndex]];
+  const [removed] = updatedLetters.splice(dragIndex, 1);
+  updatedLetters.splice(hoverIndex, 0, removed);
+
+  letterSets[wordIndex] = updatedLetters;
+  checkSolved(updatedLetters, wordIndex);
+};
+
+const updateUI = () => {
+  const wordContainer = document.getElementById('word-container');
+  wordContainer.innerHTML = '';
+
+  words.forEach((word, wordIndex) => {
+    const wordDiv = document.createElement('div');
+
+    const wordLabel = document.createElement('h4');
+    wordLabel.innerText = `Word ${wordIndex + 1}`;
+    wordDiv.appendChild(wordLabel);
+
+    const wordRow = document.createElement('div');
+    wordRow.className = 'word-row';
+
+    const lettersContainer = document.createElement('div');
+    lettersContainer.className = 'word-row';
+
+    letterSets[wordIndex].forEach((letter, letterIndex) => {
+      const letterTile = document.createElement('div');
+      letterTile.className = 'letter-tile';
+      letterTile.innerText = letter;
+      letterTile.draggable = !solvedWords[wordIndex];
+      letterTile.dataset.wordIndex = wordIndex;
+      letterTile.dataset.letterIndex = letterIndex;
+
+      if (!solvedWords[wordIndex]) {
+        letterTile.addEventListener('dragstart', (event) => {
+          event.dataTransfer.setData('text/plain', JSON.stringify({ wordIndex, letterIndex }));
+        });
+
+        letterTile.addEventListener('dragover', (event) => {
+          event.preventDefault();
+        });
+
+        letterTile.addEventListener('drop', (event) => {
+          event.preventDefault();
+          const { wordIndex: draggedWordIndex, letterIndex: draggedLetterIndex } = JSON.parse(event.dataTransfer.getData('text'));
+          if (draggedWordIndex === wordIndex) {
+            moveLetter(wordIndex, draggedLetterIndex, letterIndex);
+          }
+        });
+      }
+
+      if (solvedWords[wordIndex] && highlightLetters.some(
+        (highlight) => highlight.wordIndex === wordIndex && highlight.letterIndex === letterIndex
+      )) {
+        letterTile.classList.add('highlight');
+      }
+
+      lettersContainer.appendChild(letterTile);
+    });
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'word-message';
+    messageDiv.textContent = msg[wordIndex];
+
+    wordRow.appendChild(lettersContainer);
+    wordRow.appendChild(messageDiv);
+
+    wordDiv.appendChild(wordRow);
+    wordContainer.appendChild(wordDiv);
+  });
+
+  const codeInput = document.getElementById('code-input');
+  const submitButton = document.getElementById('submit-button');
+  const codeMessage = document.getElementById('code-message');
+
+  if (solvedWords.every(Boolean)) {
+    codeInput.disabled = false;
+    submitButton.disabled = false;
+  }
+
+  submitButton.addEventListener('click', handleCodeSubmit);
+};
+
+const handleCodeSubmit = () => {
+  const inputCode = document.getElementById('code-input').value.toUpperCase();
+  const codeMessage = document.getElementById('code-message');
+  
+  if (inputCode === solutionCode) {
+    codeMessage.innerText = '✅ Success! You entered the correct code!';
+    codeMessage.className = 'success';
+    document.getElementById("nextButton").style.display = "block";
+  } else {
+    codeMessage.innerText = '❌ Incorrect code. Try again.';
+    codeMessage.className = 'error';
+  }
+};
+
+updateUI();

@@ -15,7 +15,15 @@ html, body {
 }
 
 .puzzle1-bg{
-    background-image: url('../puzzle4img/bg1.png'); 
+    background-image: url('../puzzle1img/bg1.png'); 
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f0e6d2; /* A parchment-like color for text */
+    font-family: 'Monotype Corsiva', serif;
+}
+.puzzle4-bg{
+    background-image: url('../puzzle4img/bg4.png'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -36,7 +44,7 @@ html, body {
     border-radius: 10px;
 }
 
-.puzzle1-cont{
+.puzzle4-cont{
     display: flex;
     flex-direction: column;
     align-items: center;

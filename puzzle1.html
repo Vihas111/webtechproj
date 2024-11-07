@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Puzzle 1 - Mirror of Erised</title>
+    <title>Puzzle 1</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* Additional styles specific to this page */
@@ -44,7 +44,7 @@
             50% { border-color: #5c4033; }
         }
 
-        .puzzle1-cont {
+        .puzzle4-cont {
             margin-top: 80px;
         }
 
@@ -65,17 +65,16 @@
     </style>
 </head>
 <body class="puzzle1-bg">
-    <h2 style="text-align:center">Mirror of Erised - Puzzle 1</h2>
+    <h2 style="text-align:center">Puzzle 1</h2>
 
     <!-- Sorting Hat's Chat Bubble -->
     <div id="text-box" class="sorting-hat-bubble" onclick="changeContent()">
-        <span id="typing-text">"Ah, the Mirror of Erised... Tell me, young wizard, what is it you desire most?"</span>
+        <span id="typing-text">placeholder</span>
     </div>
 
     <div class="sorthat"></div>
 
-    <div class="puzzle1-cont">    
-        <div class="clickable-area area1" onclick="showImageModal('book_p1.jpg')"></div>
+    <div class="puzzle4-cont">    
         <button onclick="navigateTo('index.html')" class="back"></button>
         <div class="puzzle-container">
             <button id="toggleKeypad" onclick="toggleKeypad()">Submit Code</button>
@@ -104,13 +103,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Modal for displaying the image -->
-    <div id="imageModal" class="modal">
-        <span class="close-btnimg" onclick="closeImageModal()">✖</span>
-        <p id="modalHint" class="modal-hint">Scattered across the enchanted tomes, I silently mark the way. Count my gleaming presence to unlock the secret I hold. What am I?</p>
-        <img class="modal-content" id="modalImage" src="">
     </div>
 
     <script src="app.js"></script>

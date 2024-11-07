@@ -66,7 +66,7 @@ function closeImageModal() {
     modal.style.display = "none";
 }
 
-function checkPuzzle1Answer(nextPage) {
+function checkPuzzle4Answer(nextPage) {
     const answer = document.getElementById("inputField").value;
     
     if (answer === "1418") {
@@ -197,6 +197,23 @@ function checkPuzzle5Answer(nextPage) {//change the name of checkpuzzle5Answer(f
     if (answer === "3450") {
         alert("Correct!!");
         document.getElementById("nextButton").style.display = "block";
+    } else {
+        const inputField = document.getElementById("inputField");
+        inputField.style.borderColor = "red"; // Change border to red for feedback
+        inputField.value = ""; // Clear the field
+        inputField.placeholder = "Wrong answer, try again!"; // Temporary feedback
+        setTimeout(() => {
+            inputField.style.borderColor = ""; // Reset border after feedback
+        }, 1500);
+    }
+}//end of sliding puzzle
+
+function checkPuzzle1Answer(nextPage) {
+    const answer = document.getElementById("inputField").value;
+    
+    if (answer === "4365") {
+        alert("Correct!!");
+        navigateTo(nextPage);
     } else {
         const inputField = document.getElementById("inputField");
         inputField.style.borderColor = "red"; // Change border to red for feedback

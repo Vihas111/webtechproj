@@ -12,5 +12,13 @@
         <button onclick="navigateTo('index.html')">Play Again</button>
     </div>
     <script src="app.js"></script>
+    <script>
+        // Function to display the time when the page loads
+        window.onload = function() {
+            const timeTaken = localStorage.getItem('elapsedTime'); // Retrieve the time from localStorage
+            document.getElementById('time').textContent = timeTaken ? `${timeTaken} seconds` : "Time not available"; // Display the time in the span
+            localStorage.removeItem('elapsedTime'); // Clear the saved time
+        };
+    </script>
 </body>
 </html>

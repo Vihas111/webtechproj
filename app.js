@@ -1,3 +1,7 @@
+
+let time = localStorage.getItem('elapsedTime') ? parseInt(localStorage.getItem('elapsedTime')) : 0; // Initialize from localStorage if available
+let timerInterval;
+
 function navigateTo(page) {
     window.location.href = page;
 }
@@ -197,6 +201,7 @@ function checkPuzzle5Answer(nextPage) {//change the name of checkpuzzle5Answer(f
     if (answer === "9034") {
         alert("Correct!!");
         document.getElementById("nextButton").style.display = "block";
+        completePuzzle();
     } else {
         const inputField = document.getElementById("inputField");
         inputField.style.borderColor = "red"; // Change border to red for feedback
@@ -214,6 +219,7 @@ function checkPuzzle1Answer(nextPage) {
     if (answer === "4365") {
         alert("Correct!!");
         navigateTo(nextPage);
+        
     } else {
         const inputField = document.getElementById("inputField");
         inputField.style.borderColor = "red"; // Change border to red for feedback
@@ -253,7 +259,7 @@ const checkSolved = (letters, index) => {
 };
 
 const moveLetter = (wordIndex, dragIndex, hoverIndex) => {
-  if (solvedWords[wordIndex]) return;
+    if (solvedWords[wordIndex]) return;
 
   const updatedLetters = [...letterSets[wordIndex]];
   const [removed] = updatedLetters.splice(dragIndex, 1);
@@ -353,3 +359,24 @@ const handleCodeSubmit = () => {
 };
 
 updateUI();
+
+
+// Function to start the timer
+function startTimer() {
+    time = 0;
+    localStorage.setItem('elapsedTime', time);
+    timerInterval = setInterval(function() {
+        time += 1;
+        localStorage.setItem('elapsedTime', time); // Update localStorage with the latest time
+        console.log('Time = ' + time);
+    }, 1000);
+}
+
+// Function to stop the timer and clear localStorage when done
+function completePuzzle() {
+    clearInterval(timerInterval); // Stop the timer
+    alert(`Congratulations! You completed the puzzle in ${time} seconds.`);
+    
+    navigateTo('victory.html'); // Navigate to the next page
+}
+

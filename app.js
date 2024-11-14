@@ -1,6 +1,7 @@
 
 let time = localStorage.getItem('elapsedTime') ? parseInt(localStorage.getItem('elapsedTime')) : 0; // Initialize from localStorage if available
 let timerInterval;
+let username = localStorage.getItem('username') ? localStorage.getItem('username') : '';
 
 function navigateTo(page) {
     window.location.href = page;
@@ -199,7 +200,6 @@ function checkPuzzle5Answer(nextPage) {//change the name of checkpuzzle5Answer(f
     const answer = document.getElementById("inputField").value;
     
     if (answer === "9034") {
-        alert("Correct!!");
         document.getElementById("nextButton").style.display = "block";
         completePuzzle();
     } else {
@@ -380,3 +380,4 @@ function completePuzzle() {
     navigateTo('victory.html'); // Navigate to the next page
 }
 
+//maze puzzle

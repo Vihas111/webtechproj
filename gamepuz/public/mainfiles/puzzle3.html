@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MYSTICAL RUNES</title>
+  <link rel="stylesheet" href="css/scramble.css">
+</head>
+<body>
+
+
+  <div id="game-container">
+    <img src="img_scramble/title.png" alt="title">
+    <p style="font-weight: bold;">Drag the letters into the correct position to form the word:</p>
+    <img id="nextButton" src="bgfront1.png" onclick="goToNextLevel('puzzle4.html')" style="display: none; position: absolute; top: 20px; right: 20px; cursor: pointer; width: 100px; height: 100px;" alt="Next">
+    <div id="word-container"></div>
+
+    <div id="code-container">
+      <h3>Enter the Secret Code</h3>
+      <input type="text" id="code-input" disabled />
+      <button id="submit-button" disabled>Submit Code</button>
+      <p id="code-message"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    timerInterval = setInterval(function() {
+        time += 1;
+        localStorage.setItem('elapsedTime', time); // Update localStorage with the latest time
+        console.log('Time = ' + time);
+    }, 1000);
+</script>
+</body>
+</html>

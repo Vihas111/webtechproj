@@ -1,0 +1,80 @@
+#mazepuz {
+    background-color: #282c34;
+    color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#game-container {
+    margin: 2% auto;
+    padding: 20px;
+    max-width: 700px;
+    background: #3a3f47;
+    border-radius: 8px;
+}
+
+#maze {
+    display: grid;
+    grid-template-columns: repeat(12, 50px);
+    gap: 5px;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+
+.path {
+    background-color: #666;
+}
+
+.wall {
+    background-image: url('../img_maze/wall.jpg');
+}
+
+.player {
+    background-image: url('../img_maze/player.png');
+}
+
+.exit {
+    background-image: url('../img_maze/exit.jpg');
+}
+
+.key {
+    background-image: url('../img_maze/key.jpg');
+}
+
+.enemy {
+    background-image: url('../img_maze/enemy.jpg');
+}
+
+button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove border */
+    color: white; /* White text */
+    padding: 15px 30px; /* Larger padding */
+    text-align: center; /* Center text */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px; /* Larger font size */
+    font-weight: bold; /* Bold text */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    cursor: pointer; /* Pointer on hover */
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
+button:active {
+    background-color: #3e8e41; /* Even darker green on click */
+    transform: scale(0.95); /* Slightly smaller on click */
+}
+

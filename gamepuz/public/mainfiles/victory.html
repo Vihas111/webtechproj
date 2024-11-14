@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Victory</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="hogwarts-bg">
+    <div class="container">
+        <h1>Congratulations <span id="uname"></span>! You've unlocked the Room of Requirement!</h1>
+        <p>Time Taken: <span id="time"></span></p>
+        <button onclick="navigateTo('index.html')">Play Again</button>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        // Function to display the time when the page loads
+        window.onload = function() {
+            const timeTaken = localStorage.getItem('elapsedTime'); // Retrieve the time from localStorage
+            document.getElementById('time').textContent = timeTaken ? `${timeTaken} seconds` : "Time not available"; // Display the time in the span
+            localStorage.removeItem('elapsedTime'); // Clear the saved time
+
+            const username = localStorage.getItem('username');
+            document.getElementById('uname').textContent = username ? `${username}` : "Username not found";
+            localStorage.removeItem('username');
+
+            // Call saveProgress when the page loads
+            if (username && timeTaken) {
+                saveProgress(username, timeTaken);
+            }
+        };
+
+        // Function to save progress to the backend (API call)
+        const saveProgress = async (username, time) => {
+            try {
+                const response = await fetch('http://localhost:5000/api/saveProgress', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, time }),
+                });
+
+                const data = await response.json();
+                console.log(data); // Check if the progress is saved successfully
+            } catch (error) {
+                console.error('Error saving progress:', error);
+            }
+        };
+    </script>
+</body>
+</html>

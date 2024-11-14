@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Maze Game</title>
+    <link rel="stylesheet" href="css/maze.css">
+</head>
+<body id="mazepuz" onload="initializeMaze();mazetimer();">
+    <div id="game-container">
+        <h1>Advanced Maze Game</h1>
+        <p>Collect the key and escape before time runs out!</p>
+        <div id="maze"></div>
+        <p id="message">Use arrow keys to move. Time remaining: <span id="timer"></span></p>
+        <p id="mazemsg"></p>
+        <button onclick="resetGame()">Restart Game</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

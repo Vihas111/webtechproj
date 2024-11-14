@@ -1,0 +1,244 @@
+
+html, body {
+    min-height: 100vh;
+    overflow-y: hidden; /* Prevent scrolling beyond content */
+}
+
+/* Full-screen Hogwarts background image */
+.hogwarts-bg {
+    background-image: url('../bgmain.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f0e6d2; /* A parchment-like color for text */
+    font-family: 'Monotype Corsiva', serif; /* Use a Harry Potter-style font if you have it */
+}
+
+.puzzle1-bg{
+    background-image: url('../puzzle1img/bg1.png'); 
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f0e6d2; /* A parchment-like color for text */
+    font-family: 'Monotype Corsiva', serif;
+}
+.puzzle4-bg{
+    background-image: url('../puzzle4img/bg4.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f0e6d2; /* A parchment-like color for text */
+    font-family: 'Monotype Corsiva', serif;
+}
+
+/* Centering container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 93vh;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.puzzle4-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 93vh;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+/* Title styling */
+h1 {
+    font-size: 5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #222; /* Shadow for a magical effect */
+}
+
+h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #222; /* Shadow for a magical effect */
+}
+
+p {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #222; /* Shadow for a magical effect */
+}
+
+/* Button styling */
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #2d2a32; /* Dark background to match theme */
+    color: #f0e6d2;
+    border: 2px solid #f0e6d2;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #f0e6d2;
+    color: #2d2a32;
+}
+
+.back {
+    width: 90px; /* Set width for a circular button */
+    height: 90px; /* Set height for a circular button */
+    background-image: url('../bgback1.png');
+    background-size: 90px 90px; /* Adjust size to fit within the button */
+    background-repeat: no-repeat;
+    background-position: center; /* Center the image within the button */
+    background-color: #2d2a32; /* Button background color */
+    border: 2px solid #f0e6d2;
+    border-radius: 50%; /* Makes the button circular */
+    position: absolute; /* Positions it relative to the top-left of the page */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    cursor: pointer;
+}
+
+/* Keypad container */
+.keypad {
+    display: none; /* Hide the keypad by default */
+    position: fixed; /* Position it fixed for overlay effect */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for visibility */
+    border: 2px solid #8B4513; /* Dark border to match theme */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+    z-index: 10; /* Ensure it appears above other content */
+}
+
+/* Close button in the keypad */
+.close-btn {
+    background: none;
+    border: none;
+    color: #8B4513; /* Match theme color */
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px; /* Position in the top right corner */
+}
+
+/* Input field styling */
+#inputField {
+    width: 75%; /* Full width */
+    height: 40px; /* Set height */
+    font-size: 24px; /* Larger text for visibility */
+    text-align: center; /* Center text */
+    margin-bottom: 15px; /* Space below input */
+    border: 2px solid #8B4513; /* Dark border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    color: #4B2C20; /* Dark text color */
+}
+
+/* Keypad button styling */
+.keypad button {
+    width: 60px; /* Button width */
+    height: 60px; /* Button height */
+    font-size: 24px; /* Text size */
+    margin: 5px; /* Space around buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #4B2C20; /* Dark background */
+    color: white; /* White text */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Button hover effect */
+.keypad button:hover {
+    background-color: #6B4B3A; /* Lighter shade on hover */
+}
+
+/* Row layout for keypad buttons */
+.keypad .row {
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center buttons horizontally */
+    margin: 10px 0; /* Space between rows */
+}
+
+
+
+
+/* clickable area */
+
+
+.area1 {
+    top: 60%;
+    left: 74%;
+    width: 76px;
+    height: 190px;
+    position:fixed;
+    
+    
+}
+
+
+.clickable-area {
+    position: fixed;
+    cursor: pointer;
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Use flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+    flex-direction: column; /* Stack hint and image vertically */
+}
+
+.modal-content {
+    display: block;
+    max-width: 80%; /* Adjust max-width for responsiveness */
+    height: auto;
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+.close-btnimg {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btnimg:hover,
+.close-btnimg:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-hint {
+    color: #f0e6d2; /* Matches the magical theme */
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 20px; /* Space below the hint */
+    padding: 10px; /* Adds padding for better spacing */
+}

@@ -1,3 +1,6 @@
+to start this cd to gamepuz folder and then type npm start
+
+
 main page:
     -start journey
     -credits

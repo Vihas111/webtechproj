@@ -10,10 +10,10 @@ puzzle1:
     -shapes code
 
 puzzle2:
-    -unscramble
+    -maze
 
 puzzle3:
-    -hover puzzle with hidden letters and unscramble to find code
+    -unscramble to find code
 
 puzzle4:
     -click books puzzle with riddle

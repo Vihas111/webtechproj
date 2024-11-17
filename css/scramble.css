@@ -3,99 +3,123 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url("../img_scramble/bg.jpg");
+  font-family: 'Monotype Corsiva', serif;
+  color: #f0e6d2;
+  background-image: url("../puzzle3img/bg3.jpg");
   background-repeat: no-repeat;
-  background-size: cover; 
+  background-size: cover;
+  position: relative;
 }
 
-#game-container {
-  margin-top: 10px;
+/* Dark Overlay */
+.container3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
 }
 
+p {
+  font-size: 30px; /* Ensure all <p> elements have a large font size */
+}
+
+/* Word and Letter Tiles */
 .letter-tile {
-display: inline-block;
-padding: 8px 12px;
-margin: 5px;
-background-color: #8a2be2;
-color: white;
-font-size: 18px;
-border-radius: 5px;
-cursor: move;
-width: 40px;
-height: 40px;
-text-align: center;
-line-height: 40px;
+  display: inline-block;
+  padding: 8px;
+  margin: 5px;
+  background-color: #4B2C20;
+  color: #f0e6d2;
+  font-size: 30px; /* Updated font size */
+  border-radius: 5px;
+  cursor: move;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  transition: background-color 0.3s ease;
 }
 
 .letter-tile.highlight {
-background-color: #FFD700;
+  background-color: goldenrod; /* Golden color for highlighted letters */
+  color: #000; /* Optional: make the text color darker for contrast */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
-#word-container {
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-top: 0px;
-}
 
-.word-row {
-display: flex;
-justify-content: flex-start;
-align-items: center;
-flex-wrap: wrap;
-margin-bottom: 10px;
+h4 {
+  font-size: 26px; /* Font size for word labels */
+  color: #f0e6d2;
 }
 
 .word-message {
-margin-left: 20px;
-color: green;
-font-weight: bold;
+  color: #DAA520;
+  font-size: 26px; /* Font size for messages */
+  font-weight: bold;
 }
 
-#code-container {
-padding-top: 20px;
-text-align: center;
+/* Code Input and Button */
+#code-input{
+  padding: 10px 20px;
+  font-size: 24px; /* Increased font size */
+  border: 2px solid #8B4513;
+  border-radius: 25px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #f0e6d2;
+  width: 200px;
+  
 }
-
-#code-input {
-padding: 10px 20px;
-font-size: 18px;
-border: 2px solid #8a2be2;
-border-radius: 25px;
-outline: none;
-transition: 0.3s;
-width: 200px;
-}
-
-#code-input:focus {
-border-color: #FFD700;
-box-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+#code-input::placeholder {
+  font-size: 23px; /* Adjust this value to make it smaller or larger */
+  font-family: 'Times New Roman', Times, serif;
+  color: #c0c0c0;  /* Optional: Change the placeholder text color */
+  opacity: 1;      /* Ensures the color is fully opaque */
+  font-style: italic; /* Optional: Makes the text italic for emphasis */
 }
 
 #submit-button {
-padding: 10px 20px;
-font-size: 18px;
-background-color: #8a2be2;
-color: white;
-border: none;
-border-radius: 25px;
-cursor: pointer;
-transition: 0.3s;
-margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 24px; /* Increased font size */
+  background-color: #4B2C20;
+  color: #f0e6d2;
+  border: 2px solid #8B4513;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
 #submit-button:hover {
-background-color: #7a1bbf;
-}
-
-#submit-button:disabled {
-background-color: #b5b5b5;
-cursor: not-allowed;
+  background-color: #6B4B3A;
 }
 
 #code-message {
-margin-top: 10px;
-font-weight: bold;
+  margin-top: 10px;
+  font-size: 24px; /* Increased font size */
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+#code-input::placeholder {
+  font-size: 14px;
+  color: #c0c0c0;
+  opacity: 1;
 }

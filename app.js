@@ -232,21 +232,22 @@ inputField.style.borderColor = ""; // Reset border after feedback
 }
 
 
-//this is scramble puzzle code
+//Unscramble puzzle code
 const words = ["AZKABAN", "HOGWARTS", "PATRONUS", "MUGGLE"];
-const scrambledWords = words.map(word => word.split('').sort(() => Math.random() - 0.5));
 const solutionCode = `${words[0][2]}${words[1][1]}${words[2][4]}${words[3][0]}`;
 
-let letterSets = [...scrambledWords];
+// Variables for tracking progress
+let letterSets = words.map(word => word.split('').sort(() => Math.random() - 0.5));
 let solvedWords = [false, false, false, false];
 let msg = ['', '', '', ''];
 const highlightLetters = [
   { wordIndex: 0, letterIndex: 2 },
   { wordIndex: 1, letterIndex: 1 },
   { wordIndex: 2, letterIndex: 4 },
-  { wordIndex: 3, letterIndex: 0 },
+  { wordIndex: 3, letterIndex: 0 }
 ];
 
+// Function to check if a word is solved
 const checkSolved = (letters, index) => {
   if (letters.join('') === words[index]) {
     msg[index] = '✨ Correct! ✨';
@@ -258,8 +259,9 @@ const checkSolved = (letters, index) => {
   updateUI();
 };
 
+// Function to move letters within a word
 const moveLetter = (wordIndex, dragIndex, hoverIndex) => {
-    if (solvedWords[wordIndex]) return;
+  if (solvedWords[wordIndex]) return;
 
   const updatedLetters = [...letterSets[wordIndex]];
   const [removed] = updatedLetters.splice(dragIndex, 1);
@@ -269,6 +271,7 @@ const moveLetter = (wordIndex, dragIndex, hoverIndex) => {
   checkSolved(updatedLetters, wordIndex);
 };
 
+// Function to update the UI
 const updateUI = () => {
   const wordContainer = document.getElementById('word-container');
   wordContainer.innerHTML = '';
@@ -294,14 +297,20 @@ const updateUI = () => {
       letterTile.dataset.wordIndex = wordIndex;
       letterTile.dataset.letterIndex = letterIndex;
 
+      // Highlight letters if solved
+      const shouldHighlight = highlightLetters.some(
+        (highlight) => highlight.wordIndex === wordIndex && highlight.letterIndex === letterIndex
+      );
+      if (solvedWords[wordIndex] && shouldHighlight) {
+        letterTile.classList.add('highlight');
+      }
+
       if (!solvedWords[wordIndex]) {
         letterTile.addEventListener('dragstart', (event) => {
           event.dataTransfer.setData('text/plain', JSON.stringify({ wordIndex, letterIndex }));
         });
 
-        letterTile.addEventListener('dragover', (event) => {
-          event.preventDefault();
-        });
+        letterTile.addEventListener('dragover', (event) => event.preventDefault());
 
         letterTile.addEventListener('drop', (event) => {
           event.preventDefault();
@@ -310,12 +319,6 @@ const updateUI = () => {
             moveLetter(wordIndex, draggedLetterIndex, letterIndex);
           }
         });
-      }
-
-      if (solvedWords[wordIndex] && highlightLetters.some(
-        (highlight) => highlight.wordIndex === wordIndex && highlight.letterIndex === letterIndex
-      )) {
-        letterTile.classList.add('highlight');
       }
 
       lettersContainer.appendChild(letterTile);
@@ -327,38 +330,43 @@ const updateUI = () => {
 
     wordRow.appendChild(lettersContainer);
     wordRow.appendChild(messageDiv);
-
     wordDiv.appendChild(wordRow);
     wordContainer.appendChild(wordDiv);
   });
 
   const codeInput = document.getElementById('code-input');
   const submitButton = document.getElementById('submit-button');
-  const codeMessage = document.getElementById('code-message');
 
   if (solvedWords.every(Boolean)) {
     codeInput.disabled = false;
     submitButton.disabled = false;
+  } else {
+    codeInput.disabled = true;
+    submitButton.disabled = true;
   }
-
-  submitButton.addEventListener('click', handleCodeSubmit);
 };
 
+// Function to handle code submission
 const handleCodeSubmit = () => {
-  const inputCode = document.getElementById('code-input').value.toUpperCase();
+  const inputCode = document.getElementById('code-input').value.trim().toUpperCase();
   const codeMessage = document.getElementById('code-message');
-  
+  const nextButton = document.getElementById("nextButton");
+
   if (inputCode === solutionCode) {
     codeMessage.innerText = '✅ Success! You entered the correct code!';
     codeMessage.className = 'success';
-    document.getElementById("nextButton").style.display = "block";
+    nextButton.style.display = "block";
   } else {
     codeMessage.innerText = '❌ Incorrect code. Try again.';
     codeMessage.className = 'error';
   }
 };
 
+// Initialize the UI on load
 updateUI();
+
+// Attach event listener for the submit button
+document.getElementById('submit-button').addEventListener('click', handleCodeSubmit);
 
 
 // Function to start the timer

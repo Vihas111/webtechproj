@@ -1,8 +1,9 @@
+/* Body Styling */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Monotype Corsiva', serif;
     text-align: center;
-    color: #0c67ae;
-    background-image: url('../img_slidepuz/bg.jpg');
+    color: #e6ddc4; /* Soft parchment-like color */
+    background-image: url('../puzzle5img/bg5.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -11,62 +12,49 @@ body {
     height: 100vh;
 }
 
+/* Title Image */
 #title {
     height: 150px;
     width: 400px;
 }
 
+/* Puzzle Board Styling */
 #board {
     width: 360px;
     height: 360px;
-    background-color: lightblue;
-    border: 10px solid #0c67ae;
+    background-color: rgba(44, 52, 66, 0.8); /* Dark semi-transparent background */
+    border: 8px solid #4B2C20; /* Muted gold border */
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
 }
 
 #board img {
     width: 118px;
     height: 118px;
-    border: 1px solid #0c67ae;
+    border: 1px solid #4B2C20; /* Muted gold border */
 }
 
-#reset {
-    background-color: #cc9529;
-    color: white;
-    padding: 10px 20px;
+/* Buttons Styling */
+#reset, #toggleKeypad {
+    background-color: #4B2C20; /* Muted gold */
+    color: #e6ddc4; /* Parchment text color */
+    padding: 12px 25px;
     border: none;
-    border-radius: 20px;
-    font-size: 16px;
+    border-radius: 25px;
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Soft shadow */
     transition: all 0.3s ease;
 }
 
-#toggleKeypad {
-    background-color: #cc9529;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+#reset:hover, #toggleKeypad:hover {
+    background-color: #4B2C20; /* Darker brown for hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
-#toggleKeypad:hover {
-    background-color: #366789;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-
-#reset:hover {
-    background-color: #366789;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-}
-
+/* Next Button Styling */
 #nextButton {
     display: none;
     position: absolute;
@@ -77,6 +65,7 @@ body {
     height: 50px;
 }
 
+/* Fade Animations */
 .hidden {
     opacity: 0;
     transition: opacity 1s ease;
@@ -92,6 +81,46 @@ body {
     transition: opacity 1s ease;
 }
 
+/* Keypad Styling */
+.keypad {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(36, 36, 36, 0.95); /* Dark semi-transparent background */
+    border: 3px solid #4B2C20;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+/* Close Button in Keypad */
+.close-btn {
+    background: none;
+    border: none;
+    color: #e6ddc4;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+}
+
+/* Input Field Styling */
+#inputField {
+    width: 80%;
+    height: 45px;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 15px;
+    border: 2px solid #836953;
+    border-radius: 10px;
+    background-color: rgba(36, 36, 36, 0.8);
+    color: #e6ddc4;
+}
+
 .keypad {
     display: none; /* Hide the keypad by default */
     position: fixed; /* Position it fixed for overlay effect */
@@ -99,7 +128,7 @@ body {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Adjust position */
     background-color: rgba(255, 255, 255, 0.9); /* Light background for visibility */
-    border: 2px solid #cc9529; /* Dark border to match theme */
+    border: 2px solid #8B4513; /* Dark border to match theme */
     padding: 20px;
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
@@ -110,22 +139,22 @@ body {
 .close-btn {
     background: none;
     border: none;
-    color: #cc9529; /* Match theme color */
+    color: #8B4513; /* Match theme color */
     font-size: 24px;
     cursor: pointer;
     position: absolute;
-    top: 8px;
-    right: 3px; /* Position in the top right corner */
+    top: 5px;
+    right: 5px; /* Position in the top right corner */
 }
 
 /* Input field styling */
 #inputField {
-    width: 60%; /* Full width */
+    width: 75%; /* Full width */
     height: 40px; /* Set height */
     font-size: 24px; /* Larger text for visibility */
     text-align: center; /* Center text */
     margin-bottom: 15px; /* Space below input */
-    border: 2px solid #cc9529; /* Dark border */
+    border: 2px solid #8B4513; /* Dark border */
     border-radius: 5px; /* Rounded corners */
     background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
     color: #4B2C20; /* Dark text color */
@@ -140,15 +169,14 @@ body {
     cursor: pointer; /* Pointer cursor on hover */
     border: none; /* Remove default border */
     border-radius: 5px; /* Rounded corners */
-    background-color: #cc9529; /* Dark background */
+    background-color: #4B2C20; /* Dark background */
     color: white; /* White text */
     transition: background-color 0.3s ease; /* Smooth transition on hover */
 }
 
 /* Button hover effect */
 .keypad button:hover {
-    background-color: #366789;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #6B4B3A; /* Lighter shade on hover */
 }
 
 /* Row layout for keypad buttons */

@@ -38,18 +38,18 @@ window.onload = function() {
 let currentIndex = 0;
 const messages = [
     "Welcome to the Wizarding World...",
-    "Ah, a room filled with secrets, is it? Very well, here’s a hint,", 
-    "If your mind is keen enough to grasp it.",
-    "Not all is as it seems—sometimes, the quietest objects hold the loudest answers.",
-    "Look closely, and let curiosity guide your hand.",
-    "Click wisely, for each item you touch may reveal a clue… or lead you further astray.",
-    "The path to freedom lies hidden in plain sight.",
+        "Ah, a room filled with secrets, is it? Very well, here’s a hint,", 
+        "If your mind is keen enough to grasp it.",
+        "Not all is as it seems—sometimes, the quietest objects hold the loudest answers.",
+        "Look closely, and let curiosity guide your hand.",
+        "Click wisely, for each item you touch may reveal a clue… or lead you further astray.",
+        "The path to freedom lies hidden in plain sight.",
     "Now, off you go, and may your instincts be as sharp as your wits!"
-];
+    ];
 
 function changeContent() {
     const textBox = document.getElementById("typing-text");
-
+    
     textBox.style.animation = 'none';
     textBox.offsetHeight;
     textBox.style.animation = '';
@@ -101,7 +101,7 @@ var turns = 0;
 var imgOrder = ["1", "3", "2", "4", "5", "6", "7", "8", "9"];
 
 window.onload = function() {
-    for (let r = 0; r < rows; r++) {
+        for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             let tile = document.createElement("img");
             tile.id = r.toString() + "-" + c.toString();
@@ -118,7 +118,7 @@ function tileClick() {
         let emptyTile = findEmptyTile();
         let currImg = currTile.src;
         currTile.src = emptyTile.src;
-        emptyTile.src = currImg;
+emptyTile.src = currImg;
         turns += 1;
         document.getElementById("turns").innerText = turns;
         setTimeout(checkIfSolved, 100);
@@ -133,8 +133,8 @@ function checkIfSolved() {
 
     for (let i = 0; i < tiles.length; i++) {
         if (!tiles[i].src.includes("img_slidepuz/"+solvedOrder[i] + ".jpg")) {
-            return;
-        }
+return;
+}
     }
 
     puzzleSolved = true;
@@ -177,7 +177,7 @@ function resetPuzzle() {
     let tiles = document.querySelectorAll("#board img");
     
     tiles.forEach((tile, index) => {
-        tile.src = "img/" + initialOrder[index] + ".jpg";
+tile.src = "img/" + initialOrder[index] + ".jpg";
     });
 }
 
@@ -186,7 +186,7 @@ function isAdjacentToEmpty(tile) {
     
     let [r, c] = tile.id.split("-").map(Number);
     let [r2, c2] = emptyTile.id.split("-").map(Number);
-
+    
     let moveLeft = r == r2 && c2 == c - 1;
     let moveRight = r == r2 && c2 == c + 1;
     let moveUp = c == c2 && r2 == r - 1;
@@ -214,19 +214,19 @@ function checkPuzzle5Answer(nextPage) {//change the name of checkpuzzle5Answer(f
 }//end of sliding puzzle
 
 function checkPuzzle1Answer(nextPage) {
-    const answer = document.getElementById("inputField").value;
+        const answer = document.getElementById("inputField").value;
     
     if (answer === "4365") {
         alert("Correct!!");
         navigateTo(nextPage);
-        
+
     } else {
-        const inputField = document.getElementById("inputField");
+const inputField = document.getElementById("inputField");
         inputField.style.borderColor = "red"; // Change border to red for feedback
         inputField.value = ""; // Clear the field
         inputField.placeholder = "Wrong answer, try again!"; // Temporary feedback
         setTimeout(() => {
-            inputField.style.borderColor = ""; // Reset border after feedback
+inputField.style.borderColor = ""; // Reset border after feedback
         }, 1500);
     }
 }

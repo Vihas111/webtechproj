@@ -23,9 +23,9 @@ html, body {
     font-family: 'Monotype Corsiva', serif;
 }
 .puzzle4-bg{
-    background-image: url('../puzzle4img/bg4.png'); 
-    background-size: cover;
-    background-position: center;
+    background-image: url('../puzzle4img/bg4.png');  
+    background-size: cover; 
+    background-position: center;  
     background-attachment: fixed;
     color: #f0e6d2; /* A parchment-like color for text */
     font-family: 'Monotype Corsiva', serif;

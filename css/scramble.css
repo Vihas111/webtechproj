@@ -1,4 +1,4 @@
-body {
+/* body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,20 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+} */
+html, body {
+  min-height: 100vh;
+  overflow-y: hidden; /* Prevent scrolling beyond content */
 }
+
+/* Full-screen Hogwarts background image */
+body {
+  background-image: url("../puzzle3img/bg3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 
 /* Dark Overlay */
 .container3 {
@@ -19,7 +32,7 @@ body {
   justify-content: center;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 30px;
+  padding: 10px;
   border-radius: 15px;
   width: 90%;
   max-width: 800px;
@@ -38,7 +51,7 @@ p {
   margin: 5px;
   background-color: #4B2C20;
   color: #f0e6d2;
-  font-size: 30px; /* Updated font size */
+  font-size: 20px; /* Updated font size */
   border-radius: 5px;
   cursor: move;
   width: 50px;
@@ -57,7 +70,7 @@ p {
 
 
 h4 {
-  font-size: 26px; /* Font size for word labels */
+  font-size: 20px; /* Font size for word labels */
   color: #f0e6d2;
 }
 

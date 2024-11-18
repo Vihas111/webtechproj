@@ -250,7 +250,7 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -259,35 +259,48 @@ button:hover {
 
 /* Popup content */
 .popup-content {
-    background: white;
+    background-color: #4B2C20; /* Dark brown background */
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
     text-align: center;
     width: 80%;
     max-width: 400px;
+    color: #f0e6d2; /* Parchment text color */
 }
 
+/* Popup header */
 .popup-content h2 {
     margin: 0 0 10px;
-    color: #4CAF50;
+    color: goldenrod; /* Golden text color */
+    font-family: 'Monotype Corsiva', serif;
+    font-size: 28px;
 }
 
+/* Popup paragraph */
 .popup-content p {
     margin: 0 0 20px;
+    font-size: 18px;
+    color: #f0e6d2;
 }
 
 /* Close button */
 .close {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+    width: 90px; /* Adjust size as needed */
+    height: 90px;
+    background-image: url('../bgfront1.png'); /* Use your uploaded image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Make it circular */
     cursor: pointer;
-}
-
-.close:hover {
-    background-color: #45a049;
-}
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    outline: none;
+  }
+  
+  .close:hover {
+    transform: scale(1.1); /* Add a slight zoom on hover */
+  }
+  

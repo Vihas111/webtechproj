@@ -67,11 +67,11 @@
 </head>
 <body>
 <!-- Sorting Hat's Chat Bubble -->
-<div id="text-box" class="sorting-hat-bubble" onclick="changeContent()">
+<!-- <div id="text-box" class="sorting-hat-bubble" onclick="changeContent()">
   <span id="typing-text"></span>
-</div>
+</div> -->
 
-<div class="sorthat"></div>
+<!-- <div class="sorthat"></div> -->
 <div class="container3">
  
   <div id="word-container"></div>
@@ -79,9 +79,16 @@
   <div id="code-container">
     <input type="text" id="code-input" placeholder="Enter the code"  disabled />
     <button id="submit-button" disabled>Submit Code</button>
-    <p id="code-message"></p>
+    <!-- <p id="code-message"></p> -->
+    <div class="popup-overlay" id="correctPopup" style="display: none;">
+      <div class="popup-content">
+          <h2>Correct Answer!</h2>
+          <p>CLICK THE NEXT BUTTON TO PROCEED</p>
+          <button class="close" onclick="closePopup('puzzle4.html')">NEXT</button>
+      </div>
   </div>
-  <img id="nextButton" src="bgfront1.png" onclick="goToNextLevel('puzzle4.html')" style="display: none; position: absolute; bottom: 20px; right: 20px; cursor: pointer; width: 100px; height: 100px;" alt="Next">
+  </div>
+  
 </div>
 
 <script src="app.js"></script>

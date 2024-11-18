@@ -58,6 +58,19 @@
                 localStorage.setItem('elapsedTime', time); // Update localStorage with the latest time
                 console.log('Time = ' + time);
             }, 1000);
+
+            document.addEventListener('keydown', (event) => {
+                const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Backspace', 'Enter'];
+                if (allowedKeys.includes(event.key)) {
+                    if (event.key === 'Backspace') {
+                        backspace(); // Calls the function from app.js
+                    } else if (event.key === 'Enter') {
+                        checkPuzzle5Answer('victory.html'); // Calls the function from app.js
+                    } else {
+                        addToInput(event.key); // Calls the function from app.js
+                    }
+                }
+            });
         </script>
     </body>
 </html>

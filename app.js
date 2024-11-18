@@ -234,14 +234,14 @@ inputField.style.borderColor = ""; // Reset border after feedback
 
 //Unscramble puzzle code
 const words = ["AZKABAN", "HOGWARTS", "PATRONUS", "MUGGLE"];
-const solutionCode = `${words[0][2]}${words[1][1]}${words[2][4]}${words[3][0]}`;
+const solutionCode = `${words[0][4]}${words[1][1]}${words[2][4]}${words[3][0]}`;
 
 // Variables for tracking progress
 let letterSets = words.map(word => word.split('').sort(() => Math.random() - 0.5));
 let solvedWords = [false, false, false, false];
 let msg = ['', '', '', ''];
 const highlightLetters = [
-  { wordIndex: 0, letterIndex: 2 },
+  { wordIndex: 0, letterIndex: 4 },
   { wordIndex: 1, letterIndex: 1 },
   { wordIndex: 2, letterIndex: 4 },
   { wordIndex: 3, letterIndex: 0 }

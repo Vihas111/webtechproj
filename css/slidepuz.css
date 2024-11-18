@@ -230,17 +230,21 @@ body {
 
 /* Close button */
 .close {
-    background-color: #6B4B3A; /* Darker brown button */
-    color: #f0e6d2; /* Parchment text color */
-    border: 2px solid #8B4513; /* Border to match the theme */
-    border-radius: 25px;
-    padding: 10px 20px;
-    font-size: 18px;
+    width: 90px; /* Adjust size as needed */
+    height: 90px;
+    background-image: url('../bgfront1.png'); /* Use your uploaded image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    border: none; /* Remove default border */
+    border-radius: 50%; /* Make it circular */
     cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.close:hover {
-    background-color: goldenrod; /* Golden color on hover */
-    color: #4B2C20; /* Dark brown text on hover */
-}
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    outline: none;
+  }
+  
+  .close:hover {
+    transform: scale(1.1); /* Add a slight zoom on hover */
+  }
+  

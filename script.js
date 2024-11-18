@@ -2,6 +2,7 @@ const mazeElement = document.getElementById("maze");
 const messageElement = document.getElementById("message");
 const mazemsg = document.getElementById("mazemsg");
 const timerElement = document.getElementById("timer");
+let currentPuzzle='puzzle2';
 
 function navigateTo(page) {
     window.location.href = page;

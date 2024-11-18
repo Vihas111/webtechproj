@@ -101,8 +101,9 @@ function checkPuzzle4Answer(nextPage) {
     const answer = document.getElementById("inputField").value;
     
     if (answer === "1418") {
-        alert("Correct! Moving to the next puzzle...");
-        navigateTo(nextPage);
+        const popup = document.getElementById("correctPopup");
+        popup.style.display = "flex";
+
     } else {
         const inputField = document.getElementById("inputField");
         inputField.style.borderColor = "red"; // Change border to red for feedback
@@ -203,7 +204,7 @@ function resetPuzzle() {
     let tiles = document.querySelectorAll("#board img");
     
     tiles.forEach((tile, index) => {
-tile.src = "img/" + initialOrder[index] + ".jpg";
+tile.src = "img_slidepuz/" + initialOrder[index] + ".jpg";
     });
 }
 
@@ -226,7 +227,7 @@ function checkPuzzle5Answer(nextPage) {//change the name of checkpuzzle5Answer(f
     const answer = document.getElementById("inputField").value;
     
     if (answer === "9034") {
-        document.getElementById("nextButton").style.display = "block";
+       
         completePuzzle();
     } else {
         const inputField = document.getElementById("inputField");
@@ -245,6 +246,11 @@ function checkPuzzle1Answer(nextPage) {
     if (answer === "4365") {
         //alert("Correct!!");
         //navigateTo(nextPage);
+        const popup = document.getElementById("correctPopup");
+        popup.style.display = "flex";
+
+        // Make the next button visible
+        const nextButton = document.getElementById("nextButton");
         nextButton.style.display = "block";
 
     } else {
@@ -256,6 +262,12 @@ const inputField = document.getElementById("inputField");
 inputField.style.borderColor = ""; // Reset border after feedback
         }, 1500);
     }
+}
+
+function closePopup(next) {
+    const popup = document.getElementById("correctPopup");
+    popup.style.display = "none"; // Hide the popup
+    navigateTo(next);
 }
 
 
@@ -376,16 +388,18 @@ const updateUI = () => {
 // Function to handle code submission
 const handleCodeSubmit = () => {
   const inputCode = document.getElementById('code-input').value.trim().toUpperCase();
-  const codeMessage = document.getElementById('code-message');
+  //const codeMessage = document.getElementById('code-message');
   const nextButton = document.getElementById("nextButton");
 
   if (inputCode === solutionCode) {
-    codeMessage.innerText = '✅ Success! You entered the correct code!';
-    codeMessage.className = 'success';
+    //codeMessage.innerText = '✅ Success! You entered the correct code!';
+    //codeMessage.className = 'success';
+    const popup = document.getElementById("correctPopup");
+    popup.style.display = "flex";
     nextButton.style.display = "block";
   } else {
-    codeMessage.innerText = '❌ Incorrect code. Try again.';
-    codeMessage.className = 'error';
+    //codeMessage.innerText = '❌ Incorrect code. Try again.';
+   // codeMessage.className = 'error';
   }
 };
 
@@ -410,9 +424,8 @@ function startTimer() {
 // Function to stop the timer and clear localStorage when done
 function completePuzzle() {
     clearInterval(timerInterval); // Stop the timer
-    alert(`Congratulations! You completed the puzzle in ${time} seconds.`);
-    
-    navigateTo('victory.html'); // Navigate to the next page
+    const popup = document.getElementById("correctPopup");
+    popup.style.display = "flex";
 }
 
 //maze puzzle

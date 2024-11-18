@@ -77,7 +77,7 @@
     <div class="puzzle4-cont">    
         <button onclick="navigateTo('index.html')" class="back"></button>
         <div class="puzzle-container">
-            <img id="nextButton" src="bgfront1.png" onclick="goToNextLevel('puzzle2.html')" style="display: none; position: absolute; top: 20px; right: 20px; cursor: pointer; width: 100px; height: 100px;" alt="Next">
+            
             <button id="toggleKeypad" onclick="toggleKeypad()">Submit Code</button>
             <div class="keypad" id="keypad">
                 <button class="close-btn" onclick="toggleKeypad()">✖</button>
@@ -103,6 +103,14 @@
                     <button onclick="checkPuzzle1Answer('puzzle2.html')">OK</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="popup-overlay" id="correctPopup" style="display: none;">
+        <div class="popup-content">
+            <h2>Correct Answer!</h2>
+            <p>CLICK THE NEXT BUTTON TO PROCEED</p>
+            <button class="close" onclick="closePopup('puzzle2.html')">NEXT</button>
         </div>
     </div>
 

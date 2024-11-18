@@ -41,7 +41,7 @@
 }
 
 .path {
-    background-color: #4B2C20; /* Dark brown color for paths */
+    background-color: #4b2c208c; /* Dark brown color for paths */
 }
 
 .wall {
@@ -60,7 +60,7 @@
 }
 
 .key {
-    background-image: url('../puzzle2img/key.jpg');
+    background-image: url('../puzzle2img/key.png');
     background-size: contain;
 }
 

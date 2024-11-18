@@ -36,26 +36,52 @@ window.onload = function() {
 };
 
 let currentIndex = 0;
-const messages = [
-    "Welcome to the Wizarding World...",
+const messages = {
+    puzzle1: [
         "Ah, a room filled with secrets, is it? Very well, here’s a hint,", 
+        "Shapes before you—different yet aligned in purpose.",
+        "Focus your gaze, for within them lies a hidden sequence.",
+        "Pay close attention, and the numbers will reveal themselves... but only if you follow the right path.",
+        "Now, off you go, and may your instincts be as sharp as your wits!"
+    ],
+    puzzle2: [
+        "A maze, you say? Not just any maze…",
+        "This one is filled with creatures that hunger for fear.",
+        "Keep your wits about you; find the hidden key, avoid the shadows,",
+        "and you may yet see the light at the end.",
+        "But tarry too long, and darkness will consume you."
+    ],
+    puzzle3: [
+        "Ah, another challenge to test your mind!",
+        "Words have been twisted, their letters scattered.",
+        "Rearrange them to reveal their true form.",
+        "Only by solving each word can you uncover the code.",
+        "Focus, for even a single misplaced letter could lead you astray.",
+        "Onward, then! Your next step depends on it!"
+    ],
+    puzzle4: [
         "If your mind is keen enough to grasp it.",
         "Not all is as it seems—sometimes, the quietest objects hold the loudest answers.",
         "Look closely, and let curiosity guide your hand.",
         "Click wisely, for each item you touch may reveal a clue… or lead you further astray.",
-        "The path to freedom lies hidden in plain sight.",
-    "Now, off you go, and may your instincts be as sharp as your wits!"
-    ];
+        "The path to freedom lies hidden in plain sight."
+    ],
+    puzzle5: [
+        "Ah, the final test. You’ve come far, but the path to the Room of Requirement is not yet clear.",
+        "Before you lies a puzzle—a shifting image, broken into pieces.",
+        "Align them correctly, and the way forward shall be revealed.",
+        "But remember, only those with patience and focus will unlock its secret."
+    ]
+};
 
 function changeContent() {
     const textBox = document.getElementById("typing-text");
-    
+    const puzzleMessages = messages[currentPuzzle];
     textBox.style.animation = 'none';
     textBox.offsetHeight;
     textBox.style.animation = '';
-
-    textBox.textContent = messages[currentIndex];
-    currentIndex = (currentIndex + 1) % messages.length;
+    textBox.textContent = puzzleMessages[currentIndex];
+    currentIndex = (currentIndex + 1) % puzzleMessages.length;
 }
 
 function showImageModal(imageSrc) {
@@ -86,7 +112,7 @@ function checkPuzzle4Answer(nextPage) {
             inputField.style.borderColor = ""; // Reset border after feedback
         }, 1500);
     }
-}
+} 
 
 
 

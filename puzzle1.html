@@ -67,9 +67,9 @@
 <body class="puzzle1-bg" onload="startTimer()">
     <h2 style="text-align:center">Puzzle 1</h2>
 
-    <!-- Sorting Hat's Chat Bubble -->
+    <!-- Sorting Hat's Chat Bubble-->
     <div id="text-box" class="sorting-hat-bubble" onclick="changeContent()">
-        <span id="typing-text">placeholder</span>
+        <span id="typing-text"></span>
     </div>
 
     <div class="sorthat"></div>
@@ -108,6 +108,8 @@
 
     <script src="app.js"></script>
     <script>
+        let currentPuzzle='puzzle1';
+
         timerInterval = setInterval(function() {
             time += 1;
             localStorage.setItem('elapsedTime', time); // Update localStorage with the latest time

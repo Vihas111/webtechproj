@@ -15,15 +15,15 @@ const mazeLayout = [
     ['W', 'W', 'W', 'W', 'P', 'W', 'W', 'P', 'W', 'W', 'P', 'W'],
     ['W', 'P', 'P', 'P', 'P', 'P', 'W', 'P', 'P', 'P', 'P', 'P'],
     ['W', 'P', 'W', 'W', 'W', 'P', 'W', 'W', 'W', 'W', 'W', 'W'],
-    ['P', 'P', 'P', 'P', 'W', 'P', 'P', 'P', 'P', 'P', 'P', 'E'],
+    ['P', 'P', 'K', 'P', 'W', 'P', 'P', 'P', 'P', 'P', 'P', 'E'],
     ['W', 'W', 'W', 'P', 'W', 'W', 'W', 'W', 'P', 'W', 'W', 'W'],
-    ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'K', 'W']
+    ['P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'W']
 ];
-
+let kp = 0;
 let playerPosition = { x: 0, y: 0 };
 const exitPosition = { x: 11, y: 5 };
 let hasKey = false;
-let timeLeft = 60;
+let timeLeft = 30;
 let timerint;
 const enemies = [
     { x: 4, y: 3, direction: 1 },
@@ -32,6 +32,7 @@ const enemies = [
 ];
 
 function initializeMaze() {
+    if(timeLeft>0){
     mazeElement.innerHTML = '';
     for (let y = 0; y < mazeLayout.length; y++) {
         for (let x = 0; x < mazeLayout[y].length; x++) {
@@ -63,6 +64,7 @@ function initializeMaze() {
     }
     timerElement.textContent = timeLeft + "s";
 }
+}
 
 function movePlayer(dx, dy) {
     const newX = playerPosition.x + dx;
@@ -86,11 +88,13 @@ function movePlayer(dx, dy) {
 
     if (newX === exitPosition.x && newY === exitPosition.y) {
         if (hasKey) {
-            mazemsg.textContent = "Congratulations! You escaped!";
-            alert("moving to next puzzle!");
+            //mazemsg.textContent = "Congratulations! You escaped!";
+            //alert("moving to next puzzle!");
+            const popup = document.getElementById("correctPopup");
+            popup.style.display = "flex";
             clearInterval(timerint);
             clearInterval(enemyInterval);
-            navigateTo('puzzle3.html');
+            //navigateTo('puzzle3.html');
         } else {
             mazemsg.textContent = "You need the key to exit!";
         }
@@ -128,10 +132,12 @@ function moveEnemies() {
 
 function mazetimer() {
     timerint = setInterval(() => {
+        if(kp == 1){
         timeLeft--;
+        }
         timerElement.textContent = timeLeft + "s";
         if (timeLeft <= 0) {
-            messageElement.textContent = "Time's up! Game Over!";
+            mazemsg.textContent = "Time's up! Game Over!";
             clearInterval(timerint);
             clearInterval(enemyInterval);
         }
@@ -145,21 +151,23 @@ function handleKeydown(event) {
         case 'ArrowLeft': movePlayer(-1, 0); break;
         case 'ArrowRight': movePlayer(1, 0); break;
     }
+    kp = 1;
 }
 
 function resetGame() {
     playerPosition = { x: 0, y: 0 };
     hasKey = false;
-    timeLeft = 60;
+    timeLeft = 30;
     clearInterval(timerint);
     clearInterval(enemyInterval);
     initializeMaze();
     mazetimer();
     enemyInterval = setInterval(moveEnemies, 1000);  // Enemies move every second
     mazemsg.textContent = "";
+    kp = 0;
 }
 
 document.addEventListener("keydown", handleKeydown);
 
-
+mazetimer();
 let enemyInterval = setInterval(moveEnemies, 1000);  // Set interval for enemy movement

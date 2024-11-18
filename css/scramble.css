@@ -1,48 +1,35 @@
-/* body {
+body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 0;
+  padding: 0;
+  height: 100vh;
   font-family: 'Monotype Corsiva', serif;
   color: #f0e6d2;
   background-image: url("../puzzle3img/bg3.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   position: relative;
-} */
-html, body {
-  min-height: 100vh;
-  overflow-y: hidden; /* Prevent scrolling beyond content */
 }
 
-/* Full-screen Hogwarts background image */
-body {
-  background-image: url("../puzzle3img/bg3.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-
-/* Dark Overlay */
+/* Smaller Container */
 .container3 {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 10px;
+  padding: 20px;
   border-radius: 15px;
-  width: 90%;
-  max-width: 800px;
-  margin: 20px auto;
+  width: 120%;
+  max-width: 700px; /* Reduced max-width */
+  margin-bottom: 65px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  z-index: 1;
 }
 
-p {
-  font-size: 30px; /* Ensure all <p> elements have a large font size */
-}
 
 /* Word and Letter Tiles */
 .letter-tile {
@@ -51,58 +38,36 @@ p {
   margin: 5px;
   background-color: #4B2C20;
   color: #f0e6d2;
-  font-size: 20px; /* Updated font size */
+  font-size: 18px;
   border-radius: 5px;
   cursor: move;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   transition: background-color 0.3s ease;
 }
 
 .letter-tile.highlight {
-  background-color: goldenrod; /* Golden color for highlighted letters */
-  color: #000; /* Optional: make the text color darker for contrast */
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-
-h4 {
-  font-size: 20px; /* Font size for word labels */
-  color: #f0e6d2;
-}
-
-.word-message {
-  color: #DAA520;
-  font-size: 26px; /* Font size for messages */
+  background-color: goldenrod;
+  color: #000;
   font-weight: bold;
 }
 
 /* Code Input and Button */
-#code-input{
-  padding: 10px 20px;
-  font-size: 24px; /* Increased font size */
+#code-input {
+  padding: 8px 15px;
+  font-size: 18px;
   border: 2px solid #8B4513;
   border-radius: 25px;
-  outline: none;
   background-color: rgba(0, 0, 0, 0.5);
   color: #f0e6d2;
-  width: 200px;
-  
-}
-#code-input::placeholder {
-  font-size: 23px; /* Adjust this value to make it smaller or larger */
-  font-family: 'Times New Roman', Times, serif;
-  color: #c0c0c0;  /* Optional: Change the placeholder text color */
-  opacity: 1;      /* Ensures the color is fully opaque */
-  font-style: italic; /* Optional: Makes the text italic for emphasis */
+  width: 180px;
 }
 
 #submit-button {
-  padding: 10px 20px;
-  font-size: 24px; /* Increased font size */
+  padding: 8px 15px;
+  font-size: 18px;
   background-color: #4B2C20;
   color: #f0e6d2;
   border: 2px solid #8B4513;
@@ -117,22 +82,14 @@ h4 {
 
 #code-message {
   margin-top: 10px;
-  font-size: 24px; /* Increased font size */
+  font-size: 20px;
   font-weight: bold;
 }
 
 .success {
   color: green;
-  font-weight: bold;
 }
 
 .error {
   color: red;
-  font-weight: bold;
-}
-
-#code-input::placeholder {
-  font-size: 14px;
-  color: #c0c0c0;
-  opacity: 1;
 }

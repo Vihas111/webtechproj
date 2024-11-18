@@ -45,27 +45,27 @@
 }
 
 .wall {
-    background-image: url('../img_maze/wall.jpg');
+    background-image: url('../puzzle2img/wall.jpg');
     background-size: cover;
 }
 
 .player {
-    background-image: url('../img_maze/player.png');
+    background-image: url('../puzzle2img/player.png');
     background-size: contain;
 }
 
 .exit {
-    background-image: url('../img_maze/exit.jpg');
+    background-image: url('../puzzle2img/exit.jpg');
     background-size: cover;
 }
 
 .key {
-    background-image: url('../img_maze/key.jpg');
+    background-image: url('../puzzle2img/key.jpg');
     background-size: contain;
 }
 
 .enemy {
-    background-image: url('../img_maze/enemy.jpg');
+    background-image: url('../puzzle2img/enemy.png');
     background-size: contain;
 }
 

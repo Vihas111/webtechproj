@@ -217,8 +217,9 @@ function checkPuzzle1Answer(nextPage) {
         const answer = document.getElementById("inputField").value;
     
     if (answer === "4365") {
-        alert("Correct!!");
-        navigateTo(nextPage);
+        //alert("Correct!!");
+        //navigateTo(nextPage);
+        nextButton.style.display = "block";
 
     } else {
 const inputField = document.getElementById("inputField");

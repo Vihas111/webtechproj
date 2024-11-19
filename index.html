@@ -4,14 +4,64 @@
     <meta charset="UTF-8">
     <title>Harry Potter Escape Room</title>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Styling for the input field */
+#username {
+    padding: 10px 15px;
+    width: 20%;
+    margin: 20px auto;
+    display: block;
+    border-radius: 15px;
+    border: 2px solid #2d2a32;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+    text-align: center;
+    outline: none;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#username:focus {
+    box-shadow: 0px 0px 15px 5px #5a4f6a;
+}
+
+#startJourneyButton:disabled {
+    /*background-color: #9a75ff;*/
+    cursor: not-allowed;
+}
+
+    </style>
 </head>
 <body class="hogwarts-bg">
     <div class="container">
         <h1>Welcome to the School of Secrets ...</h1>
-        <button onclick="startTimer(); navigateTo('puzzle1.html')">Start Journey</button>
+        <input type="text" id="username" placeholder="Enter your username" oninput="checkUsername()">
+
+        <!-- Start Journey button, initially disabled -->
+        <button id="startJourneyButton" onclick="startJourney()" disabled>Start Journey</button>
         <button onclick="navigateTo('settings.html')">Spells & Enchantments</button>
         <button onclick="navigateTo('credits.html')">Marauder's Map</button>
     </div>
     <script src="app.js"></script>
+    <script>
+        function checkUsername() {
+            const usernameInput = document.getElementById('username').value;
+            const startButton = document.getElementById('startJourneyButton');
+            startButton.disabled = usernameInput.trim() === ""; // Disable if empty, enable if not
+        }
+
+        // Function to start the journey, starts the timer and navigates to puzzle1.html
+        function startJourney() {
+            const username = document.getElementById('username').value;
+            if (username.trim()) {
+                // Save username to localStorage
+                localStorage.setItem('username', username);
+            startTimer(); // Start the timer
+            console.log(username);
+            navigateTo('puzzle1.html'); // Navigate to the first puzzle
+            }
+        }
+
+
+    </script>
 </body>
 </html>
